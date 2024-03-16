@@ -10,8 +10,11 @@
     <input type="checkbox" id="one">
     <input type="checkbox" id="two">
     <input type="checkbox" id="three">
-  <div class="container">
+    
+    <div class="container">
     <h1>Create-Profile</h1>
+    <h6>- 1 of 3 -</h6>
+    
     <div class="indicator">
         <div class="step step1">
             <div>1</div>         <!--progressive number lineee-->
@@ -22,7 +25,7 @@
             <div>2</div>
             <span>Contact</span>
         </div>
-        <div class="line line2"></div>
+        <div class="line line2"></div> <!--line between stepsssss-->
         <div class="step step3">
             <div>3</div>
             <span>Personal</span>
@@ -30,40 +33,51 @@
         <div class="line line3"></div>
         <div class="step step4">
             <div>4</div>
-            <span>Login</span>
+            <span>Step-2</span>
         </div>
 
     </div>
 
     <div class="panel">
+        
         <div class="page1">
-            <form action="#" class="form">
+            
+            <form action="#" class="form" id="form-for-details-con">
+                
                 <h2>Basic Information</h2>
+                
                 <div class="form-group">
-                    <input type="text" required>
-                    <label for="">First Name</label>
+                    <input type="text" id="fname" name="fname" >
+                    <label for="fname">First Name</label>
                 </div>
+                
                 <div class="form-group">
-                    <input type="text" required>
-                    <label for="">Last Name</label>
+                    <input type="text" id="lname" name="lname" >
+                    <label for="lname">Last Name</label>
                 </div>
+                
                 <div class="btn-group">
                     <label for="one" class="btn btn-f">Next</label>
                     <label for="one" class="btn btn-f">Skip</label>
+                    <!--new update list button-->
+                    <div class="register-btn-group">
+                    <input type="submit" id="registerSubmit" name="registerSubmit" value="UpdateList">
                 </div>
+                </div>
+            
             </form>
         </div>
 
         <div class="page2">
-            <form action="#" class="form">
+            <form action="#" class="form"  id="form-for-details-con">
                 <h2>Contact Information</h2>
                 <div class="form-group">
                     <input type="text" required>
                     <label for="">Email Address</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" required>
-                    <label for="">Phone Number</label>
+                    <input type="number" required>           <!--get inputs-->
+                    <label for="">Phone Number</label>        <!--lable for that-->
                 </div>
                 <div class="btn-group">
                     <label for="one" class="btn">Previous</label>
@@ -103,13 +117,38 @@
                 </div>
                 <div class="btn-group">
                     <label for="three" class="btn">Previous</label>
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn">Next Page</button> <!--may be have 2 edit when create next page-->
                 </div>
             </form>
         </div>
 
         
     </div>
-  </div>      
+  </div> 
+  
+  <div class="container2" id="container2">  <!-- relate for summary part -->
+    <h4>-Details-</h4>
+</div>
 </body>
+
+<!--Java script part add to inputted data to container-->
+
+<!-- JavaScript part to add inputted data to container -->
+<script>
+    var form_for_details_con = document.getElementById('form-for-details-con');
+    var container2 = document.getElementById('container2');
+    var detailsDisplay = document.createElement('p');
+
+    form_for_details_con.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        var firstName = document.getElementById('fname').value;
+        var lastName = document.getElementById('lname').value;
+
+        detailsDisplay.textContent = 'Name:  ' + firstName + '  ' + lastName;
+        container2.appendChild(detailsDisplay);
+    });
+</script>
+
+
 </html>
